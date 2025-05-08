@@ -1,0 +1,3 @@
+/mnt/c/JBMLL 2025/TESIS/POSITION_GEOFENCE_C++/build/_deps/crow-subbuild/CMakeFiles/crow-populate.dir
+/mnt/c/JBMLL 2025/TESIS/POSITION_GEOFENCE_C++/build/_deps/crow-subbuild/CMakeFiles/edit_cache.dir
+/mnt/c/JBMLL 2025/TESIS/POSITION_GEOFENCE_C++/build/_deps/crow-subbuild/CMakeFiles/rebuild_cache.dir
