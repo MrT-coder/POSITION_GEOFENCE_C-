@@ -1,21 +1,25 @@
 cmake_minimum_required(VERSION 3.20)
 project(PositionGeofence LANGUAGES CXX)
 
+#Versión de c++
 set(CMAKE_CXX_STANDARD 20)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
-# — Asegúrate de que pkg-config vea tus .pc (ajusta si instalaste en otro sitio) —
-# export PKG_CONFIG_PATH=/usr/local/lib/pkgconfig:$PKG_CONFIG_PATH
-
+# pkg para la instalación de dependencias
 find_package(PkgConfig REQUIRED)
+
+
 find_package(fmt     REQUIRED)
 find_package(spdlog  REQUIRED)
 
-# Esto leerá libbsoncxx.pc y libmongocxx.pc
-pkg_check_modules(BSONCXX REQUIRED libbsoncxx)
-pkg_check_modules(MONGOCXX REQUIRED libmongocxx)
+# — MongoDB C++ drivers 
+pkg_check_modules(BSONCXX   REQUIRED libbsoncxx)
+pkg_check_modules(MONGOCXX  REQUIRED libmongocxx)
 
-# — Crow por FetchContent —
+
+pkg_check_modules(ICAL REQUIRED libical)
+
+# — Crow por FetchContent directo de github —
 include(FetchContent)
 set(CROW_USE_BOOST ON CACHE BOOL "")
 FetchContent_Declare(
@@ -28,35 +32,41 @@ FetchContent_MakeAvailable(Crow)
 # — Boost del sistema —
 find_package(Boost REQUIRED COMPONENTS system thread chrono)
 
+# — Ejecutable —
 add_executable(posgeo_server
   src/main.cpp
-  src/decoder.cpp
 )
 
-# — Tus includes propios y los de BSON/Mongo —
+# — Includes propios —
 target_include_directories(posgeo_server
   PRIVATE
     ${CMAKE_SOURCE_DIR}/include
     ${BSONCXX_INCLUDE_DIRS}
     ${MONGOCXX_INCLUDE_DIRS}
+    ${ICAL_INCLUDE_DIRS}        
 )
 
-# — Linkea con Boost, Crow y MongoDB —
+
+add_definitions(${ICAL_CFLAGS_OTHER})
+
+
 target_link_libraries(posgeo_server
   PRIVATE
     fmt::fmt
-    spdlog::spdlog  
+    spdlog::spdlog
     Boost::system
     Boost::thread
     Boost::chrono
     Crow::Crow
     ${BSONCXX_LIBRARIES}
     ${MONGOCXX_LIBRARIES}
+    ${ICAL_LIBRARIES}           
 )
 
-# — A veces pkg-config necesita estos dirs al linkear —
+
 target_link_directories(posgeo_server
   PRIVATE
     ${BSONCXX_LIBRARY_DIRS}
     ${MONGOCXX_LIBRARY_DIRS}
+    ${ICAL_LIBRARY_DIRS}        
 )

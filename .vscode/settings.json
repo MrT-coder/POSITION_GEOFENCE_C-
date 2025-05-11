@@ -1,7 +1,8 @@
 {
-    "C_Cpp.errorSquiggles": "enabled",
+    "C_Cpp.errorSquiggles": "disabled",
     "files.associations": {
         "*.embeddedhtml": "html",
-        "functional": "cpp"
+        "functional": "cpp",
+        "numbers": "cpp"
     }
 }

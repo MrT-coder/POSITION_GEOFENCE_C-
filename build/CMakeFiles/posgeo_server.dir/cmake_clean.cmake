@@ -1,6 +1,4 @@
 file(REMOVE_RECURSE
-  "CMakeFiles/posgeo_server.dir/src/decoder.cpp.o"
-  "CMakeFiles/posgeo_server.dir/src/decoder.cpp.o.d"
   "CMakeFiles/posgeo_server.dir/src/main.cpp.o"
   "CMakeFiles/posgeo_server.dir/src/main.cpp.o.d"
   "posgeo_server"

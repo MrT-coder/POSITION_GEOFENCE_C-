@@ -207,30 +207,6 @@ uninstall/fast:
 	$(MAKE) $(MAKESILENT) -f _deps/crow-build/CMakeFiles/uninstall.dir/build.make _deps/crow-build/CMakeFiles/uninstall.dir/build
 .PHONY : uninstall/fast
 
-src/decoder.o: src/decoder.cpp.o
-.PHONY : src/decoder.o
-
-# target to build an object file
-src/decoder.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/posgeo_server.dir/build.make CMakeFiles/posgeo_server.dir/src/decoder.cpp.o
-.PHONY : src/decoder.cpp.o
-
-src/decoder.i: src/decoder.cpp.i
-.PHONY : src/decoder.i
-
-# target to preprocess a source file
-src/decoder.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/posgeo_server.dir/build.make CMakeFiles/posgeo_server.dir/src/decoder.cpp.i
-.PHONY : src/decoder.cpp.i
-
-src/decoder.s: src/decoder.cpp.s
-.PHONY : src/decoder.s
-
-# target to generate assembly for a file
-src/decoder.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/posgeo_server.dir/build.make CMakeFiles/posgeo_server.dir/src/decoder.cpp.s
-.PHONY : src/decoder.cpp.s
-
 src/main.o: src/main.cpp.o
 .PHONY : src/main.o
 
@@ -271,9 +247,6 @@ help:
 	@echo "... rebuild_cache"
 	@echo "... uninstall"
 	@echo "... posgeo_server"
-	@echo "... src/decoder.o"
-	@echo "... src/decoder.i"
-	@echo "... src/decoder.s"
 	@echo "... src/main.o"
 	@echo "... src/main.i"
 	@echo "... src/main.s"
