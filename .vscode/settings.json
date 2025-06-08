@@ -3,6 +3,7 @@
     "files.associations": {
         "*.embeddedhtml": "html",
         "functional": "cpp",
-        "numbers": "cpp"
+        "numbers": "cpp",
+        "memory": "cpp"
     }
 }
